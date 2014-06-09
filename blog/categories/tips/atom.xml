@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tips | Aprende Git]]></title>
   <link href="http://aprende-git.github.io/blog/categories/tips/atom.xml" rel="self"/>
   <link href="http://aprende-git.github.io/"/>
-  <updated>2014-06-09T19:41:37+02:00</updated>
+  <updated>2014-06-09T20:30:56+02:00</updated>
   <id>http://aprende-git.github.io/</id>
   <author>
     <name><![CDATA[OSL-UGR, Pablo Hinojosa y JJ Merelo]]></name>
@@ -40,7 +40,7 @@ git commit -am "Ya me lo he traido pacá"
 modificado (<code>feature-1</code>) por
 equivocación con el de la rama donde tenías que haberlo
 modificado (<code>dev</code>, que es en la que estás). Aunque no haya sido por equivocación, sino a caso
-hecho. Puedes usarlo además con el número de ficheros qeu te dé la
+hecho. Puedes usarlo además con el número de ficheros que te dé la
 gana.</p>
 ]]></content>
   </entry>
