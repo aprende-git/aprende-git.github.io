@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - Aprende Git</title>
+  <title>Fusionar Ficheros De Otras Ramas - Aprende Git</title>
   <meta name="author" content="OSL-UGR, Pablo Hinojosa y JJ Merelo">
 
   
-  <meta name="description" content="Blog Archive 2014 Fusionar Ficheros De Otras Ramas
-Jun 09 2014 posted in Tips, Trucos ¡Ahora Con Blog!
-May 11 2014 posted in Anuncios, Meta Sobre &hellip;">
+  <meta name="description" content="¿Te ha sucedido a veces que has modificado un fichero en una rama
+pensando que te encontrabas en otra rama? Supongamos que tenemos el fichero &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@ May 11 2014 posted in Anuncios, Meta Sobre &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://aprende-git.github.io/blog/archives">
+  <link rel="canonical" href="http://aprende-git.github.io/blog/fusionar-ficheros-de-otras-ramas">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Aprende Git" type="application/atom+xml">
@@ -60,49 +59,111 @@ May 11 2014 posted in Anuncios, Meta Sobre &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Fusionar Ficheros De Otras Ramas</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-09T19:36:07+02:00" pubdate data-updated="true">Jun 9<span>th</span>, 2014</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>¿Te ha sucedido a veces que has modificado un fichero en una rama
+pensando que te encontrabas en otra rama?</p>
 
-  
-  <h2>2014</h2>
+<p>Supongamos que tenemos el fichero <code>ese_fishero.pl</code> en la rama <code>feature-1</code> y
+que, así por las buenas, hemos hecho los cambios ahí en vez de en la
+rama <code>dev</code> que es en la que debería ir. Además, hay otros cambios en
+esa rama, que, esos, no los quieres incorporar.</p>
 
-<article>
-  
-<h1><a href="/blog/fusionar-ficheros-de-otras-ramas/">Fusionar Ficheros De Otras Ramas</a></h1>
-<time datetime="2014-06-09T19:36:07+02:00" pubdate><span class='month'>Jun</span> <span class='day'>09</span> <span class='year'>2014</span></time>
+<p>Nada más fácil:</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/tips/'>Tips</a>, <a class='category' href='/blog/categories/trucos/'>Trucos</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/ahora-con-blog/">¡Ahora Con Blog!</a></h1>
-<time datetime="2014-05-11T10:10:16+02:00" pubdate><span class='month'>May</span> <span class='day'>11</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/anuncios/'>Anuncios</a>, <a class='category' href='/blog/categories/meta/'>Meta</a></span>
-</footer>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git commit -am "Hala que me cambio"
+</span><span class='line'>git checkout dev
+</span><span class='line'>git checkout feature-1 ese_fishero.pl
+</span><span class='line'>[Resuelve conflictos]
+</span><span class='line'>git commit -am "Ya me lo he traido pacá"</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
-
+<p>La tercera línea te fusiona el fichero en la rama donde lo has
+modificado (<code>feature-1</code>) por
+equivocación con el de la rama donde tenías que haberlo
+modificado (<code>dev</code>, que es en la que estás). Aunque no haya sido por equivocación, sino a caso
+hecho. Puedes usarlo además con el número de ficheros qeu te dé la
+gana.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">OSL-UGR, Pablo Hinojosa y JJ Merelo</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-09T19:36:07+02:00" pubdate data-updated="true">Jun 9<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/tips/'>Tips</a>, <a class='category' href='/blog/categories/trucos/'>Trucos</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://aprende-git.github.io/blog/fusionar-ficheros-de-otras-ramas/" data-via="" data-counturl="http://aprende-git.github.io/blog/fusionar-ficheros-de-otras-ramas/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/ahora-con-blog/" title="Previous Post: ¡Ahora con blog!">&laquo; ¡Ahora con blog!</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

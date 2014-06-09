@@ -9,11 +9,8 @@
   <meta name="author" content="OSL-UGR, Pablo Hinojosa y JJ Merelo">
 
   
-  <meta name="description" content="Sin muchos tópicos ni alharacas,
-ahí va la tercera edición, v0.3 o Sunday of Discontent, SD para abreviar. Desde
-la
-versión anterior FT
-tiene algún &hellip;">
+  <meta name="description" content="¿Te ha sucedido a veces que has modificado un fichero en una rama
+pensando que te encontrabas en otra rama? Supongamos que tenemos el fichero &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -63,6 +60,69 @@ tiene algún &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/fusionar-ficheros-de-otras-ramas/">Fusionar Ficheros De Otras Ramas</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-09T19:36:07+02:00" pubdate data-updated="true">Jun 9<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>¿Te ha sucedido a veces que has modificado un fichero en una rama
+pensando que te encontrabas en otra rama?</p>
+
+<p>Supongamos que tenemos el fichero <code>ese_fishero.pl</code> en la rama <code>feature-1</code> y
+que, así por las buenas, hemos hecho los cambios ahí en vez de en la
+rama <code>dev</code> que es en la que debería ir. Además, hay otros cambios en
+esa rama, que, esos, no los quieres incorporar.</p>
+
+<p>Nada más fácil:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git commit -am "Hala que me cambio"
+</span><span class='line'>git checkout dev
+</span><span class='line'>git checkout feature-1 ese_fishero.pl
+</span><span class='line'>[Resuelve conflictos]
+</span><span class='line'>git commit -am "Ya me lo he traido pacá"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>La tercera línea te fusiona el fichero en la rama donde lo has
+modificado (<code>feature-1</code>) por
+equivocación con el de la rama donde tenías que haberlo
+modificado (<code>dev</code>, que es en la que estás). Aunque no haya sido por equivocación, sino a caso
+hecho. Puedes usarlo además con el número de ficheros qeu te dé la
+gana.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -138,6 +198,10 @@ para los que usen PDFs o les gusten los libros físicos.</p>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/fusionar-ficheros-de-otras-ramas/">Fusionar Ficheros De Otras Ramas</a>
+      </li>
     
       <li class="post">
         <a href="/blog/ahora-con-blog/">¡Ahora Con Blog!</a>
