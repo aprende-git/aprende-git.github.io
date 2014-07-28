@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Branches | Aprende Git]]></title>
+  <link href="http://blog.aprendeg.it/blog/categories/branches/atom.xml" rel="self"/>
+  <link href="http://blog.aprendeg.it/"/>
+  <updated>2014-07-28T09:07:17+02:00</updated>
+  <id>http://blog.aprendeg.it/</id>
+  <author>
+    <name><![CDATA[OSL-UGR, Pablo Hinojosa y JJ Merelo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Empujando]]></title>
+    <link href="http://blog.aprendeg.it/blog/empujando/"/>
+    <updated>2014-07-28T08:49:53+02:00</updated>
+    <id>http://blog.aprendeg.it/blog/empujando</id>
+    <content type="html"><![CDATA[<p><code>push</code> hace muchas cosas, pero no lo hace todo. En principio, sólo sincroniza ramas que están en los dos repositorios. Para que se <em>entere</em> de nuevas ramas hay que decírselo a caso hecho.</p>
+
+<p>Si hemos creado una nueva rama con</p>
+
+<p><code>
+git checkout -v esa_rama_oe
+</code></p>
+
+<p>Tras modificar los ficheros, <code>git push</code> no hará nada, porque esa rama no existe <code>upstream</code>, el lugar de donde nos lo hemos bajado. Para crearla</p>
+
+<p><code>
+git push -u origin esa_rama_oe
+</code></p>
+
+<p>que le indica que la rama <em>upstream</em> (<code>-u</code>) en <code>origin</code> se va a llamar de la misma forma. Cada vez que se haga push se hará sobre todas las ramas que se hayan modificado.</p>
+
+<p>Un tipo especial de ramas son las etiquetas o <em>tags</em>. En realidad, son como una rama <em>ligera</em>: <code>git tag -a v0.0.1 -m "Primera versión"</code> etiquetará el último <em>commit</em>, pero una vez más la etiqueta será local. El comando anterior no servirá, puesto que estas <em>ramas</em> son en realidad notas sobre etiquetas. <a href="http://stackoverflow.com/questions/5195859/push-a-tag-to-a-remote-repository-using-git">Habrá que usar</a></p>
+
+<p><code>
+git push --tags
+</code></p>
+
+<p>(si quieres que suba todas las etiquetas al repositorio).</p>
+]]></content>
+  </entry>
+  
+</feed>

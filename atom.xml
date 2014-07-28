@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Aprende Git]]></title>
+  <link href="http://blog.aprendeg.it/atom.xml" rel="self"/>
+  <link href="http://blog.aprendeg.it/"/>
+  <updated>2014-07-28T09:07:17+02:00</updated>
+  <id>http://blog.aprendeg.it/</id>
+  <author>
+    <name><![CDATA[OSL-UGR, Pablo Hinojosa y JJ Merelo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Empujando]]></title>
+    <link href="http://blog.aprendeg.it/blog/empujando/"/>
+    <updated>2014-07-28T08:49:53+02:00</updated>
+    <id>http://blog.aprendeg.it/blog/empujando</id>
+    <content type="html"><![CDATA[<p><code>push</code> hace muchas cosas, pero no lo hace todo. En principio, sólo sincroniza ramas que están en los dos repositorios. Para que se <em>entere</em> de nuevas ramas hay que decírselo a caso hecho.</p>
+
+<p>Si hemos creado una nueva rama con</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout -v esa_rama_oe</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Tras modificar los ficheros, <code>git push</code> no hará nada, porque esa rama no existe <code>upstream</code>, el lugar de donde nos lo hemos bajado. Para crearla</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git push -u origin esa_rama_oe</span></code></pre></td></tr></table></div></figure>
+
+
+<p>que le indica que la rama <em>upstream</em> (<code>-u</code>) en <code>origin</code> se va a llamar de la misma forma. Cada vez que se haga push se hará sobre todas las ramas que se hayan modificado.</p>
+
+<p>Un tipo especial de ramas son las etiquetas o <em>tags</em>. En realidad, son como una rama <em>ligera</em>: <code>git tag -a v0.0.1 -m "Primera versión"</code> etiquetará el último <em>commit</em>, pero una vez más la etiqueta será local. El comando anterior no servirá, puesto que estas <em>ramas</em> son en realidad notas sobre etiquetas. <a href="http://stackoverflow.com/questions/5195859/push-a-tag-to-a-remote-repository-using-git">Habrá que usar</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git push --tags</span></code></pre></td></tr></table></div></figure>
+
+
+<p>(si quieres que suba todas las etiquetas al repositorio).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fusionar Ficheros De Otras Ramas]]></title>
+    <link href="http://blog.aprendeg.it/blog/fusionar-ficheros-de-otras-ramas/"/>
+    <updated>2014-06-09T19:36:07+02:00</updated>
+    <id>http://blog.aprendeg.it/blog/fusionar-ficheros-de-otras-ramas</id>
+    <content type="html"><![CDATA[<p>¿Te ha sucedido a veces que has modificado un fichero en una rama
+pensando que te encontrabas en otra rama?</p>
+
+<p>Supongamos que tenemos el fichero <code>ese_fishero.pl</code> en la rama <code>feature-1</code> y
+que, así por las buenas, hemos hecho los cambios ahí en vez de en la
+rama <code>dev</code> que es en la que debería ir. Además, hay otros cambios en
+esa rama, que, esos, no los quieres incorporar.</p>
+
+<p>Nada más fácil:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git commit -am "Hala que me cambio"
+</span><span class='line'>git checkout dev
+</span><span class='line'>git checkout feature-1 ese_fishero.pl
+</span><span class='line'>[Resuelve conflictos]
+</span><span class='line'>git commit -am "Ya me lo he traido pacá"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>La tercera línea te fusiona el fichero en la rama donde lo has
+modificado (<code>feature-1</code>) por
+equivocación con el de la rama donde tenías que haberlo
+modificado (<code>dev</code>, que es en la que estás). Aunque no haya sido por equivocación, sino a caso
+hecho. Puedes usarlo además con el número de ficheros que te dé la
+gana.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[¡Ahora Con Blog!]]></title>
+    <link href="http://blog.aprendeg.it/blog/ahora-con-blog/"/>
+    <updated>2014-05-11T10:10:16+02:00</updated>
+    <id>http://blog.aprendeg.it/blog/ahora-con-blog</id>
+    <content type="html"><![CDATA[<p>Sin muchos tópicos ni alharacas,
+<a href="https://github.com/oslugr/curso-git/releases/tag/v0.3">ahí va la tercera edición, <code>v0.3</code> o <em>Sunday of Discontent</em>, SD para abreviar</a>. Desde
+la
+<a href="https://github.com/oslugr/curso-git/releases/tag/v0.2">versión anterior <em>FT</em></a>
+tiene algún material añadido, pero principalmente corrección de
+errores tipográficos y ortográficos. También hemos cambiado la
+plantilla del PDF para que no aparezca, de buenas a primeras, la tabla
+de contenidos.</p>
+
+<p>De camino,
+<a href="https://www.amazon.es/dp/B00K515GL2?tag=atalaya-21&amp;camp=3634&amp;creative=24822&amp;linkCode=as4&amp;creativeASIN=B00K515GL2&amp;adid=05Y09PE1MZYADE8ZNJED&amp;">hemos sacado una segunda edición del libro en Amazon</a>
+y
+<a href="http://www.bubok.es/libros/233274/Aprende-git">una primera edición en Bubok</a>,
+para los que usen PDFs o les gusten los libros físicos.</p>
+]]></content>
+  </entry>
+  
+</feed>

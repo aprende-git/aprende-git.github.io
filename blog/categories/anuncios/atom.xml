@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Anuncios | Aprende Git]]></title>
+  <link href="http://blog.aprendeg.it/blog/categories/anuncios/atom.xml" rel="self"/>
+  <link href="http://blog.aprendeg.it/"/>
+  <updated>2014-07-28T09:07:17+02:00</updated>
+  <id>http://blog.aprendeg.it/</id>
+  <author>
+    <name><![CDATA[OSL-UGR, Pablo Hinojosa y JJ Merelo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[¡Ahora Con Blog!]]></title>
+    <link href="http://blog.aprendeg.it/blog/ahora-con-blog/"/>
+    <updated>2014-05-11T10:10:16+02:00</updated>
+    <id>http://blog.aprendeg.it/blog/ahora-con-blog</id>
+    <content type="html"><![CDATA[<p>Sin muchos tópicos ni alharacas,
+<a href="https://github.com/oslugr/curso-git/releases/tag/v0.3">ahí va la tercera edición, <code>v0.3</code> o <em>Sunday of Discontent</em>, SD para abreviar</a>. Desde
+la
+<a href="https://github.com/oslugr/curso-git/releases/tag/v0.2">versión anterior <em>FT</em></a>
+tiene algún material añadido, pero principalmente corrección de
+errores tipográficos y ortográficos. También hemos cambiado la
+plantilla del PDF para que no aparezca, de buenas a primeras, la tabla
+de contenidos.</p>
+
+<p>De camino,
+<a href="https://www.amazon.es/dp/B00K515GL2?tag=atalaya-21&amp;camp=3634&amp;creative=24822&amp;linkCode=as4&amp;creativeASIN=B00K515GL2&amp;adid=05Y09PE1MZYADE8ZNJED&amp;">hemos sacado una segunda edición del libro en Amazon</a>
+y
+<a href="http://www.bubok.es/libros/233274/Aprende-git">una primera edición en Bubok</a>,
+para los que usen PDFs o les gusten los libros físicos.</p>
+]]></content>
+  </entry>
+  
+</feed>

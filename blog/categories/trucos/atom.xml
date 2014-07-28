@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Trucos | Aprende Git]]></title>
+  <link href="http://blog.aprendeg.it/blog/categories/trucos/atom.xml" rel="self"/>
+  <link href="http://blog.aprendeg.it/"/>
+  <updated>2014-07-28T09:07:17+02:00</updated>
+  <id>http://blog.aprendeg.it/</id>
+  <author>
+    <name><![CDATA[OSL-UGR, Pablo Hinojosa y JJ Merelo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fusionar Ficheros De Otras Ramas]]></title>
+    <link href="http://blog.aprendeg.it/blog/fusionar-ficheros-de-otras-ramas/"/>
+    <updated>2014-06-09T19:36:07+02:00</updated>
+    <id>http://blog.aprendeg.it/blog/fusionar-ficheros-de-otras-ramas</id>
+    <content type="html"><![CDATA[<p>¿Te ha sucedido a veces que has modificado un fichero en una rama
+pensando que te encontrabas en otra rama?</p>
+
+<p>Supongamos que tenemos el fichero <code>ese_fishero.pl</code> en la rama <code>feature-1</code> y
+que, así por las buenas, hemos hecho los cambios ahí en vez de en la
+rama <code>dev</code> que es en la que debería ir. Además, hay otros cambios en
+esa rama, que, esos, no los quieres incorporar.</p>
+
+<p>Nada más fácil:</p>
+
+<p><code>
+git commit -am "Hala que me cambio"
+git checkout dev
+git checkout feature-1 ese_fishero.pl
+[Resuelve conflictos]
+git commit -am "Ya me lo he traido pacá"
+</code></p>
+
+<p>La tercera línea te fusiona el fichero en la rama donde lo has
+modificado (<code>feature-1</code>) por
+equivocación con el de la rama donde tenías que haberlo
+modificado (<code>dev</code>, que es en la que estás). Aunque no haya sido por equivocación, sino a caso
+hecho. Puedes usarlo además con el número de ficheros que te dé la
+gana.</p>
+]]></content>
+  </entry>
+  
+</feed>
