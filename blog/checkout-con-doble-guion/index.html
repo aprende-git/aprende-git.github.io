@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Empujando - Aprende Git</title>
+  <title>Checkout Con Doble Guión - Aprende Git</title>
   <meta name="author" content="OSL-UGR, Pablo Hinojosa y JJ Merelo">
 
   
-  <meta name="description" content="push hace muchas cosas, pero no lo hace todo. En principio, sólo sincroniza ramas que están en los dos repositorios. Para que se entere de nuevas &hellip;">
+  <meta name="description" content="Alguna vez nos hemos podido encontrar una expresión de este tipo 1
+git checkout una.rama -- un.fichero que tiene por medio el doble guión, double &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.aprendeg.it/blog/empujando">
+  <link rel="canonical" href="http://blog.aprendeg.it/blog/checkout-con-doble-guion">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Aprende Git" type="application/atom+xml">
@@ -69,7 +70,7 @@
   
   <header>
     
-      <h1 class="entry-title">Empujando</h1>
+      <h1 class="entry-title">Checkout Con Doble Guión</h1>
     
     
       <p class="meta">
@@ -85,36 +86,54 @@
   
 
 
-<time datetime="2014-07-28T08:49:53+02:00" pubdate data-updated="true">Jul 28<span>th</span>, 2014</time>
+<time datetime="2014-08-25T12:07:09+02:00" pubdate data-updated="true">Aug 25<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><code>push</code> hace muchas cosas, pero no lo hace todo. En principio, sólo sincroniza ramas que están en los dos repositorios. Para que se <em>entere</em> de nuevas ramas hay que decírselo a caso hecho.</p>
-
-<p>Si hemos creado una nueva rama con</p>
+<div class="entry-content"><p>Alguna vez nos hemos podido encontrar una expresión de este tipo</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout -v esa_rama_oe</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout una.rama -- un.fichero</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Tras modificar los ficheros, <code>git push</code> no hará nada, porque esa rama no existe <code>upstream</code>, el lugar de donde nos lo hemos bajado. Para crearla</p>
+<p>que tiene por medio el doble guión, <em>double dash</em> o <em>dash dash</em>. Como
+resulta difícil de buscar tal cosa en Google se usa en plan <em>cargo
+cult</em>, o sea, siempre, o nunca. Lo que es innecesario.</p>
+
+<p>Como explica en
+<a href="http://stackoverflow.com/questions/13321458/meaning-of-git-checkout-double-dashes">esta entrada de StackOverflow, sea siempre bendito y alabado</a>,
+se trata simplemente de separar los nombres de rama de los nombres de
+fichero, o las opciones de línea de órdenes de los nombres de fichero.</p>
+
+<p>Por ejemplo, si hacemos</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git push -u origin esa_rama_oe</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout -b hola.py</span></code></pre></td></tr></table></div></figure>
 
 
-<p>que le indica que la rama <em>upstream</em> (<code>-u</code>) en <code>origin</code> se va a llamar de la misma forma. Cada vez que se haga push se hará sobre todas las ramas que se hayan modificado.</p>
-
-<p>Un tipo especial de ramas son las etiquetas o <em>tags</em>. En realidad, son como una rama <em>ligera</em>: <code>git tag -a v0.0.1 -m "Primera versión"</code> etiquetará el último <em>commit</em>, pero una vez más la etiqueta será local. El comando anterior no servirá, puesto que estas <em>ramas</em> son en realidad notas sobre etiquetas. <a href="http://stackoverflow.com/questions/5195859/push-a-tag-to-a-remote-repository-using-git">Habrá que usar</a></p>
+<p>y luego creamos un fichero <code>hola.py</code> dentro, la forma de extraerlo
+desde la rama <code>master</code> sería</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git push --tags</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout hola.py -- hola.py</span></code></pre></td></tr></table></div></figure>
 
 
-<p>(si quieres que suba todas las etiquetas al repositorio).</p>
+<p>Si lo hubiéramos hecho de otra forma, habríamos obtenido un error</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout hola.py hola.py
+</span><span class='line'>fatal: ambiguous argument 'hola.py': both revision and filename
+</span><span class='line'>Use '--' to separate filenames from revisions</span></code></pre></td></tr></table></div></figure>
+
+
+<p>De todo esto la conclusión obvia es que no usemos nombres de rama que
+parezcan nombres de ficheros, hombre, por favor. Pero si lo hacemos,
+<code>git</code> nos da la solución.</p>
 </div>
 
 
@@ -137,12 +156,12 @@
   
 
 
-<time datetime="2014-07-28T08:49:53+02:00" pubdate data-updated="true">Jul 28<span>th</span>, 2014</time>
+<time datetime="2014-08-25T12:07:09+02:00" pubdate data-updated="true">Aug 25<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/branches/'>branches</a>, <a class='category' href='/blog/categories/push/'>push,</a>, <a class='category' href='/blog/categories/tags/'>tags,</a>, <a class='category' href='/blog/categories/tips/'>tips,</a>
+    <a class='category' href='/blog/categories/branches/'>branches</a>, <a class='category' href='/blog/categories/checkout/'>checkout,</a>, <a class='category' href='/blog/categories/tips/'>tips,</a>
   
 </span>
 
@@ -151,7 +170,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.aprendeg.it/blog/empujando/" data-via="" data-counturl="http://blog.aprendeg.it/blog/empujando/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.aprendeg.it/blog/checkout-con-doble-guion/" data-via="" data-counturl="http://blog.aprendeg.it/blog/checkout-con-doble-guion/" >Tweet</a>
   
   
   
@@ -160,10 +179,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/fusionar-ficheros-de-otras-ramas/" title="Previous Post: Fusionar ficheros de otras ramas">&laquo; Fusionar ficheros de otras ramas</a>
+        <a class="basic-alignment left" href="/blog/empujando/" title="Previous Post: Empujando">&laquo; Empujando</a>
       
-      
-        <a class="basic-alignment right" href="/blog/checkout-con-doble-guion/" title="Next Post: Checkout con doble guión">Checkout con doble guión &raquo;</a>
       
     </p>
   </footer>

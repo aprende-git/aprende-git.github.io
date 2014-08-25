@@ -4,7 +4,7 @@
   <title><![CDATA[Aprende Git]]></title>
   <link href="http://blog.aprendeg.it/atom.xml" rel="self"/>
   <link href="http://blog.aprendeg.it/"/>
-  <updated>2014-07-28T09:29:41+02:00</updated>
+  <updated>2014-08-25T12:21:29+02:00</updated>
   <id>http://blog.aprendeg.it/</id>
   <author>
     <name><![CDATA[OSL-UGR, Pablo Hinojosa y JJ Merelo]]></name>
@@ -12,6 +12,55 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Checkout Con Doble Guión]]></title>
+    <link href="http://blog.aprendeg.it/blog/checkout-con-doble-guion/"/>
+    <updated>2014-08-25T12:07:09+02:00</updated>
+    <id>http://blog.aprendeg.it/blog/checkout-con-doble-guion</id>
+    <content type="html"><![CDATA[<p>Alguna vez nos hemos podido encontrar una expresión de este tipo</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout una.rama -- un.fichero</span></code></pre></td></tr></table></div></figure>
+
+
+<p>que tiene por medio el doble guión, <em>double dash</em> o <em>dash dash</em>. Como
+resulta difícil de buscar tal cosa en Google se usa en plan <em>cargo
+cult</em>, o sea, siempre, o nunca. Lo que es innecesario.</p>
+
+<p>Como explica en
+<a href="http://stackoverflow.com/questions/13321458/meaning-of-git-checkout-double-dashes">esta entrada de StackOverflow, sea siempre bendito y alabado</a>,
+se trata simplemente de separar los nombres de rama de los nombres de
+fichero, o las opciones de línea de órdenes de los nombres de fichero.</p>
+
+<p>Por ejemplo, si hacemos</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout -b hola.py</span></code></pre></td></tr></table></div></figure>
+
+
+<p>y luego creamos un fichero <code>hola.py</code> dentro, la forma de extraerlo
+desde la rama <code>master</code> sería</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout hola.py -- hola.py</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Si lo hubiéramos hecho de otra forma, habríamos obtenido un error</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout hola.py hola.py
+</span><span class='line'>fatal: ambiguous argument 'hola.py': both revision and filename
+</span><span class='line'>Use '--' to separate filenames from revisions</span></code></pre></td></tr></table></div></figure>
+
+
+<p>De todo esto la conclusión obvia es que no usemos nombres de rama que
+parezcan nombres de ficheros, hombre, por favor. Pero si lo hacemos,
+<code>git</code> nos da la solución.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Empujando]]></title>
