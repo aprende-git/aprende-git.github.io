@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Tips, | Aprende Git]]></title>
+  <title><![CDATA[Category: Tips | Aprende Git]]></title>
   <link href="http://blog.aprendeg.it/blog/categories/tips/atom.xml" rel="self"/>
   <link href="http://blog.aprendeg.it/"/>
-  <updated>2014-08-25T12:21:29+02:00</updated>
+  <updated>2014-09-08T18:38:17+02:00</updated>
   <id>http://blog.aprendeg.it/</id>
   <author>
     <name><![CDATA[OSL-UGR, Pablo Hinojosa y JJ Merelo]]></name>
@@ -14,80 +14,34 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Checkout Con Doble Guión]]></title>
-    <link href="http://blog.aprendeg.it/blog/checkout-con-doble-guion/"/>
-    <updated>2014-08-25T12:07:09+02:00</updated>
-    <id>http://blog.aprendeg.it/blog/checkout-con-doble-guion</id>
-    <content type="html"><![CDATA[<p>Alguna vez nos hemos podido encontrar una expresión de este tipo</p>
+    <title type="html"><![CDATA[Fusionar Ficheros De Otras Ramas]]></title>
+    <link href="http://blog.aprendeg.it/blog/fusionar-ficheros-de-otras-ramas/"/>
+    <updated>2014-06-09T19:36:07+02:00</updated>
+    <id>http://blog.aprendeg.it/blog/fusionar-ficheros-de-otras-ramas</id>
+    <content type="html"><![CDATA[<p>¿Te ha sucedido a veces que has modificado un fichero en una rama
+pensando que te encontrabas en otra rama?</p>
+
+<p>Supongamos que tenemos el fichero <code>ese_fishero.pl</code> en la rama <code>feature-1</code> y
+que, así por las buenas, hemos hecho los cambios ahí en vez de en la
+rama <code>dev</code> que es en la que debería ir. Además, hay otros cambios en
+esa rama, que, esos, no los quieres incorporar.</p>
+
+<p>Nada más fácil:</p>
 
 <p><code>
-git checkout una.rama -- un.fichero
+git commit -am "Hala que me cambio"
+git checkout dev
+git checkout feature-1 ese_fishero.pl
+[Resuelve conflictos]
+git commit -am "Ya me lo he traido pacá"
 </code></p>
 
-<p>que tiene por medio el doble guión, <em>double dash</em> o <em>dash dash</em>. Como
-resulta difícil de buscar tal cosa en Google se usa en plan <em>cargo
-cult</em>, o sea, siempre, o nunca. Lo que es innecesario.</p>
-
-<p>Como explica en
-<a href="http://stackoverflow.com/questions/13321458/meaning-of-git-checkout-double-dashes">esta entrada de StackOverflow, sea siempre bendito y alabado</a>,
-se trata simplemente de separar los nombres de rama de los nombres de
-fichero, o las opciones de línea de órdenes de los nombres de fichero.</p>
-
-<p>Por ejemplo, si hacemos</p>
-
-<p><code>
-git checkout -b hola.py
-</code></p>
-
-<p>y luego creamos un fichero <code>hola.py</code> dentro, la forma de extraerlo
-desde la rama <code>master</code> sería</p>
-
-<p><code>
-git checkout hola.py -- hola.py
-</code></p>
-
-<p>Si lo hubiéramos hecho de otra forma, habríamos obtenido un error</p>
-
-<p><code>
-git checkout hola.py hola.py
-fatal: ambiguous argument 'hola.py': both revision and filename
-Use '--' to separate filenames from revisions
-</code></p>
-
-<p>De todo esto la conclusión obvia es que no usemos nombres de rama que
-parezcan nombres de ficheros, hombre, por favor. Pero si lo hacemos,
-<code>git</code> nos da la solución.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Empujando]]></title>
-    <link href="http://blog.aprendeg.it/blog/empujando/"/>
-    <updated>2014-07-28T08:49:53+02:00</updated>
-    <id>http://blog.aprendeg.it/blog/empujando</id>
-    <content type="html"><![CDATA[<p><code>push</code> hace muchas cosas, pero no lo hace todo. En principio, sólo sincroniza ramas que están en los dos repositorios. Para que se <em>entere</em> de nuevas ramas hay que decírselo a caso hecho.</p>
-
-<p>Si hemos creado una nueva rama con</p>
-
-<p><code>
-git checkout -v esa_rama_oe
-</code></p>
-
-<p>Tras modificar los ficheros, <code>git push</code> no hará nada, porque esa rama no existe <code>upstream</code>, el lugar de donde nos lo hemos bajado. Para crearla</p>
-
-<p><code>
-git push -u origin esa_rama_oe
-</code></p>
-
-<p>que le indica que la rama <em>upstream</em> (<code>-u</code>) en <code>origin</code> se va a llamar de la misma forma. Cada vez que se haga push se hará sobre todas las ramas que se hayan modificado.</p>
-
-<p>Un tipo especial de ramas son las etiquetas o <em>tags</em>. En realidad, son como una rama <em>ligera</em>: <code>git tag -a v0.0.1 -m "Primera versión"</code> etiquetará el último <em>commit</em>, pero una vez más la etiqueta será local. El comando anterior no servirá, puesto que estas <em>ramas</em> son en realidad notas sobre etiquetas. <a href="http://stackoverflow.com/questions/5195859/push-a-tag-to-a-remote-repository-using-git">Habrá que usar</a></p>
-
-<p><code>
-git push --tags
-</code></p>
-
-<p>(si quieres que suba todas las etiquetas al repositorio).</p>
+<p>La tercera línea te fusiona el fichero en la rama donde lo has
+modificado (<code>feature-1</code>) por
+equivocación con el de la rama donde tenías que haberlo
+modificado (<code>dev</code>, que es en la que estás). Aunque no haya sido por equivocación, sino a caso
+hecho. Puedes usarlo además con el número de ficheros que te dé la
+gana.</p>
 ]]></content>
   </entry>
   
