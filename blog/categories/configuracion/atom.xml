@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Configuración, | Aprende Git]]></title>
+  <link href="http://blog.aprendeg.it/blog/categories/configuracion/atom.xml" rel="self"/>
+  <link href="http://blog.aprendeg.it/"/>
+  <updated>2014-09-30T09:51:10+02:00</updated>
+  <id>http://blog.aprendeg.it/</id>
+  <author>
+    <name><![CDATA[OSL-UGR, Pablo Hinojosa y JJ Merelo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Match Y Simple]]></title>
+    <link href="http://blog.aprendeg.it/blog/match-y-simple/"/>
+    <updated>2014-09-08T18:23:22+02:00</updated>
+    <id>http://blog.aprendeg.it/blog/match-y-simple</id>
+    <content type="html"><![CDATA[<p>Es posible que, cuando habéis actualizado el sistema operativo o instalado por primera vez git, al hacer <code>git push</code> os haya salido un mensaje como este:</p>
+
+<p>```
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from &lsquo;matching&rsquo; to &lsquo;simple&rsquo;. To squelch this message
+and maintain the current behavior after the default changes, use:</p>
+
+<p>  git config &mdash;global push.default matching</p>
+
+<p>To squelch this message and adopt the new behavior now, use:</p>
+
+<p>  git config &mdash;global push.default simple</p>
+
+<p>```</p>
+
+<p>El mensaje está relacionado con las ramas que va a sincronizar al
+usarlo. Como explica en <a href="http://blog.nicoschuele.com/posts/git-2-0-changes-push-default-to-simple">este artículo sobre el nuevo
+comportamiento</a>,
+<code>matching</code> es el comportamiento que tenía en la versión 1.x: cuando se
+hace push se trata de emparejar (de ahí el <em>match</em>) las ramas remotas
+con las locales y se sincronizarán emparejando los nombres. Sin
+embargo, con <code>simple</code> se hará <code>push</code> solamente sobre la rama en la que
+se esté en ese momento.</p>
+
+<p>Hay <a href="http://stackoverflow.com/questions/21839651/git-what-is-the-difference-between-push-default-matching-and-simple">algunas opciones
+más</a>. Por
+ejemplo, en flujos de trabajo distribuidos <code>current</code> es el equivalente
+a <code>simple</code>, aunque el primero trabaja en cualquier tipo de
+entorno. Por eso, posiblemente usar <code>git config --global push.default
+current</code> nos evite sustos de actualizaciones de ramas que, en ese
+momento, no quisiéramos actualizar.</p>
+]]></content>
+  </entry>
+  
+</feed>
