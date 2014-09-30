@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Trucos, | Aprende Git]]></title>
-  <link href="http://blog.aprendeg.it/blog/categories/trucos/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Ramas, | Aprende Git]]></title>
+  <link href="http://blog.aprendeg.it/blog/categories/ramas/atom.xml" rel="self"/>
   <link href="http://blog.aprendeg.it/"/>
   <updated>2014-09-30T09:39:28+02:00</updated>
   <id>http://blog.aprendeg.it/</id>

@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Checkout Con Doble Guión - Aprende Git</title>
+  <title>Trabajando en Un *fork* - Aprende Git</title>
   <meta name="author" content="OSL-UGR, Pablo Hinojosa y JJ Merelo">
 
   
-  <meta name="description" content="Alguna vez nos hemos podido encontrar una expresión de este tipo 1
-git checkout una.rama -- un.fichero que tiene por medio el doble guión, double &hellip;">
+  <meta name="description" content="Hacer un fork es fácil, pero lo forkeado tiene la mala costumbre de seguir actualizándose con lo que llega un momento en que la copia se aleja cada &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@ git checkout una.rama -- un.fichero que tiene por medio el doble guión, double 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.aprendeg.it/blog/checkout-con-doble-guion">
+  <link rel="canonical" href="http://blog.aprendeg.it/blog/trabajando-en-un-star-fork-star">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Aprende Git" type="application/atom+xml">
@@ -70,7 +69,7 @@ git checkout una.rama -- un.fichero que tiene por medio el doble guión, double 
   
   <header>
     
-      <h1 class="entry-title">Checkout Con Doble Guión</h1>
+      <h1 class="entry-title">Trabajando en Un *fork*</h1>
     
     
       <p class="meta">
@@ -86,54 +85,34 @@ git checkout una.rama -- un.fichero que tiene por medio el doble guión, double 
   
 
 
-<time datetime="2014-08-25T12:07:09+02:00" pubdate data-updated="true">Aug 25<span>th</span>, 2014</time>
+<time datetime="2014-09-30T09:32:42+02:00" pubdate data-updated="true">Sep 30<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Alguna vez nos hemos podido encontrar una expresión de este tipo</p>
+<div class="entry-content"><p>Hacer un <em>fork</em> es fácil, pero lo <em>forkeado</em> tiene la mala costumbre de seguir actualizándose con lo que llega un momento en que la copia se aleja cada vez más del original.</p>
+
+<p>Mantenerse al día es simplemente cuestión de hacer un pull:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout una.rama -- un.fichero</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git pull git@github.com:JJ/GII-2014.git master</span></code></pre></td></tr></table></div></figure>
 
 
-<p>que tiene por medio el doble guión, <em>double dash</em> o <em>dash dash</em>. Como
-resulta difícil de buscar tal cosa en Google se usa en plan <em>cargo
-cult</em>, o sea, siempre, o nunca. Lo que es innecesario.</p>
+<p>por ejemplo.</p>
 
-<p>Como explica en
-<a href="http://stackoverflow.com/questions/13321458/meaning-of-git-checkout-double-dashes">esta entrada de StackOverflow, sea siempre bendito y alabado</a>,
-se trata simplemente de separar los nombres de rama de los nombres de
-fichero, o las opciones de línea de órdenes de los nombres de fichero.</p>
-
-<p>Por ejemplo, si hacemos</p>
+<p>Sin embargo, uno se puede acabar hartando de meter esto, puede que haya desaparecido de la historia del shell o simplemente no recuerde la dirección original. Así que lo más fácil es hacer</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout -b hola.py</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git remote add upstream git@github.com:JJ/GII-2014.git </span></code></pre></td></tr></table></div></figure>
 
 
-<p>y luego creamos un fichero <code>hola.py</code> dentro, la forma de extraerlo
-desde la rama <code>master</code> sería</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout hola.py -- hola.py</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Si lo hubiéramos hecho de otra forma, habríamos obtenido un error</p>
+<p>Que define el alias <code>upstream</code> para el repositorio <em>original</em>, dejando <em>origin</em> para designar nuestra rama. Con este es simplemente cuestión de hacer, cada ciertotiempo</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout hola.py hola.py
-</span><span class='line'>fatal: ambiguous argument 'hola.py': both revision and filename
-</span><span class='line'>Use '--' to separate filenames from revisions</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git pull upstream master</span></code></pre></td></tr></table></div></figure>
 
-
-<p>De todo esto la conclusión obvia es que no usemos nombres de rama que
-parezcan nombres de ficheros, hombre, por favor. Pero si lo hacemos,
-<code>git</code> nos da la solución.</p>
 </div>
 
 
@@ -156,12 +135,12 @@ parezcan nombres de ficheros, hombre, por favor. Pero si lo hacemos,
   
 
 
-<time datetime="2014-08-25T12:07:09+02:00" pubdate data-updated="true">Aug 25<span>th</span>, 2014</time>
+<time datetime="2014-09-30T09:32:42+02:00" pubdate data-updated="true">Sep 30<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/branches/'>branches</a>, <a class='category' href='/blog/categories/checkout/'>checkout,</a>, <a class='category' href='/blog/categories/tips/'>tips,</a>
+    <a class='category' href='/blog/categories/branch/'>branch,</a>, <a class='category' href='/blog/categories/branches/'>branches</a>, <a class='category' href='/blog/categories/fork/'>fork,</a>, <a class='category' href='/blog/categories/pull/'>pull</a>, <a class='category' href='/blog/categories/ramas/'>ramas,</a>, <a class='category' href='/blog/categories/request/'>request,</a>, <a class='category' href='/blog/categories/tips/'>tips,</a>, <a class='category' href='/blog/categories/trucos/'>trucos,</a>
   
 </span>
 
@@ -170,7 +149,7 @@ parezcan nombres de ficheros, hombre, por favor. Pero si lo hacemos,
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.aprendeg.it/blog/checkout-con-doble-guion/" data-via="" data-counturl="http://blog.aprendeg.it/blog/checkout-con-doble-guion/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.aprendeg.it/blog/trabajando-en-un-star-fork-star/" data-via="" data-counturl="http://blog.aprendeg.it/blog/trabajando-en-un-star-fork-star/" >Tweet</a>
   
   
   
@@ -179,10 +158,8 @@ parezcan nombres de ficheros, hombre, por favor. Pero si lo hacemos,
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/empujando/" title="Previous Post: Empujando">&laquo; Empujando</a>
+        <a class="basic-alignment left" href="/blog/checkout-con-doble-guion/" title="Previous Post: Checkout con doble guión">&laquo; Checkout con doble guión</a>
       
-      
-        <a class="basic-alignment right" href="/blog/trabajando-en-un-star-fork-star/" title="Next Post: Trabajando en un *fork*">Trabajando en un *fork* &raquo;</a>
       
     </p>
   </footer>

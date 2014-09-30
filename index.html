@@ -9,8 +9,7 @@
   <meta name="author" content="OSL-UGR, Pablo Hinojosa y JJ Merelo">
 
   
-  <meta name="description" content="Alguna vez nos hemos podido encontrar una expresión de este tipo 1
-git checkout una.rama -- un.fichero que tiene por medio el doble guión, double &hellip;">
+  <meta name="description" content="Hacer un fork es fácil, pero lo forkeado tiene la mala costumbre de seguir actualizándose con lo que llega un momento en que la copia se aleja cada &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +66,62 @@ git checkout una.rama -- un.fichero que tiene por medio el doble guión, double 
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/trabajando-en-un-star-fork-star/">Trabajando en Un *fork*</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-30T09:32:42+02:00" pubdate data-updated="true">Sep 30<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Hacer un <em>fork</em> es fácil, pero lo <em>forkeado</em> tiene la mala costumbre de seguir actualizándose con lo que llega un momento en que la copia se aleja cada vez más del original.</p>
+
+<p>Mantenerse al día es simplemente cuestión de hacer un pull:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git pull git@github.com:JJ/GII-2014.git master</span></code></pre></td></tr></table></div></figure>
+
+
+<p>por ejemplo.</p>
+
+<p>Sin embargo, uno se puede acabar hartando de meter esto, puede que haya desaparecido de la historia del shell o simplemente no recuerde la dirección original. Así que lo más fácil es hacer</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git remote add upstream git@github.com:JJ/GII-2014.git </span></code></pre></td></tr></table></div></figure>
+
+
+<p>Que define el alias <code>upstream</code> para el repositorio <em>original</em>, dejando <em>origin</em> para designar nuestra rama. Con este es simplemente cuestión de hacer, cada ciertotiempo</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git pull upstream master</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -331,6 +386,10 @@ para los que usen PDFs o les gusten los libros físicos.</p>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/trabajando-en-un-star-fork-star/">Trabajando en Un *fork*</a>
+      </li>
     
       <li class="post">
         <a href="/blog/checkout-con-doble-guion/">Checkout Con Doble Guión</a>
