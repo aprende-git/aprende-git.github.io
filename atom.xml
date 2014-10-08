@@ -4,7 +4,7 @@
   <title><![CDATA[Aprende Git]]></title>
   <link href="http://blog.aprendeg.it/atom.xml" rel="self"/>
   <link href="http://blog.aprendeg.it/"/>
-  <updated>2014-09-30T09:52:13+02:00</updated>
+  <updated>2014-10-08T17:41:50+02:00</updated>
   <id>http://blog.aprendeg.it/</id>
   <author>
     <name><![CDATA[OSL-UGR, Pablo Hinojosa y JJ Merelo]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Trabajando Sin Repositorio Central]]></title>
+    <link href="http://blog.aprendeg.it/blog/trabajando-sin-repositorio-central/"/>
+    <updated>2014-10-08T17:39:18+02:00</updated>
+    <id>http://blog.aprendeg.it/blog/trabajando-sin-repositorio-central</id>
+    <content type="html"><![CDATA[<p><code>git</code> es un sistema de control de versiones distribuido y como tal se puede usar de máquina a máquina sin más que tener acceso por ssh y permisos de escritura en el mismo (de hecho, es lo que hacemos cuando subimos nuestra clave a GitHub). <a href="http://psicobyte.com">Pablo</a> nos explica en su blog <a href="http://www.psicobyte.com/articulo/sincronizando_git_sobre_ssh">cómo sincronizar <code>git</code> sobre ssh</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Trabajando en Un Fork]]></title>
